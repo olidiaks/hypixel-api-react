@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
 const propTypes = {
-    description: PropTypes.string,
+    label: PropTypes.string,
     value: PropTypes.array.isRequired,
     onChange: PropTypes.func.isRequired,
     option: PropTypes.array,
@@ -25,7 +25,7 @@ const InputCheckbox = props => {
     }
 
     return <div className="form-group">
-        <h3 className="fw-bold">{props.description}</h3>
+        <h3 className="fw-bold">{props.label}</h3>
         {props.option.map(option =>
             <div key={option.value}>
                 <input

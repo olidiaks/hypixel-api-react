@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import {useRef} from "react";
 
 const propTypes = {
-    description: PropTypes.string,
+    label: PropTypes.string,
     onChange: PropTypes.func.isRequired,
 };
 
@@ -14,7 +14,7 @@ const defaultProps = {
 const InputFile = props => {
     const ref = useRef()
     return <div className="form-group">
-        <label className="form-label"><h3 className="fw-bold">{props.description}</h3></label><br/>
+        <label className="form-label"><h3 className="fw-bold">{props.label}</h3></label><br/>
         <input type="file" ref={ref} onChange={event => props.onChange(event.target.files)}/>
     </div>;
 };

@@ -7,7 +7,7 @@ import InputFile from "./InputFile/InputFile";
 import InputRadio from "./InputRadio/InputRadio";
 
 const propTypes = {
-    description: PropTypes.string,
+    label: PropTypes.string,
     value: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.array,

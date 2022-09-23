@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
 const propTypes = {
-    description: PropTypes.string,
+    label: PropTypes.string,
     value: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.number,
@@ -13,7 +13,7 @@ const propTypes = {
 
 const InputSelect = props => {
     return <div className="form-group">
-        <label htmlFor="rooms" className="form-label">{props.description}</label>
+        <label htmlFor="rooms" className="form-label">{props.label}</label>
         <select
             value={props.value}
             onChange={event => props.onChange(event.target.value)}

@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
 const propTypes = {
-    description: PropTypes.string,
+    label: PropTypes.string,
     value: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
     type: PropTypes.string.isRequired,
@@ -19,7 +19,7 @@ const defaultProps = {
 
 const InputTextNumber = props =>
     <div className="form-group">
-        <label className="form-label">{props.description}</label>
+        <label className="form-label">{props.label}</label>
         <input
             type={props.type}
             value={props.value}

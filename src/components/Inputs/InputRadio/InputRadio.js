@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
 const propTypes = {
-    description: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
     option: PropTypes.array.isRequired,
@@ -10,7 +10,7 @@ const propTypes = {
 
 const InputRadio = props =>
     <div className="form-group">
-        <h3>{props.description}</h3>
+        <h3>{props.label}</h3>
         {props.option.map(option =>
             <div key={option.value}>
                 <input
