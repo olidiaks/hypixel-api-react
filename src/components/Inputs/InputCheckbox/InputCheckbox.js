@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import {useId} from "react";
 
 const propTypes = {
     label: PropTypes.string,
@@ -13,6 +14,8 @@ const defaultProps = {
 };
 
 const InputCheckbox = props => {
+    const id = useId();
+
     const changeFeatureHandler = event => {
         const value = event.target.value;
         const isChecked = event.target.checked;
@@ -34,10 +37,10 @@ const InputCheckbox = props => {
                     checked={props.value.find(x => x === option.value || false)}
                     value={option.value}
                     name={option.value}
-                    id={option.value}
+                    id={`${id}–${option.value}`}
                     onChange={changeFeatureHandler}
                 />
-                <label className="form-check-label" htmlFor={option.value}>
+                <label className="form-check-label" htmlFor={`${id}–${option.value}`}>
                     {option.label}
                 </label>
                 <br/>

@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import {useId} from "react";
 
 const propTypes = {
     label: PropTypes.string.isRequired,
@@ -8,8 +9,9 @@ const propTypes = {
     name: PropTypes.string.isRequired,
 };
 
-const InputRadio = props =>
-    <div className="form-group">
+const InputRadio = props => {
+    const id = useId();
+    return <div className="form-group">
         <h3>{props.label}</h3>
         {props.option.map(option =>
             <div key={option.value}>
@@ -30,6 +32,7 @@ const InputRadio = props =>
         )}
 
     </div>;
+};
 
 InputRadio.propTypes = propTypes;
 

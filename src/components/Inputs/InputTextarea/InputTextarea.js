@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import {useId} from "react";
 
 const propTypes = {
     label: PropTypes.string,
@@ -15,10 +16,12 @@ const defaultProps = {
     showError: false,
 };
 
-const InputTextarea = props =>
-    <div className="form-group">
-        <label className="form-label">Opis</label>
+const InputTextarea = props => {
+    const id = useId();
+    return <div className="form-group">
+        <label htmlFor={id} className="form-label">Opis</label>
         <textarea
+            id={id}
             value={props.value}
             onChange={event => props.onChange(event.target.value)}
             className={`form-control ${props.showError ? (props.isValid ? 'is-valid' : 'is-invalid') : null}`}
@@ -29,7 +32,8 @@ const InputTextarea = props =>
         <div className="invalid-feedback">
             {props.invalidFeedback}
         </div>
-    </div>
+    </div>;
+}
 
 InputTextarea.defaultProps = defaultProps;
 InputTextarea.propTypes = propTypes;

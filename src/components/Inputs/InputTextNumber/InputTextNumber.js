@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import {useId} from "react";
 
 const propTypes = {
     label: PropTypes.string,
@@ -17,18 +18,21 @@ const defaultProps = {
     showError: false,
 };
 
-const InputTextNumber = props =>
-    <div className="form-group">
-        <label className="form-label">{props.label}</label>
+const InputTextNumber = props => {
+    const id = useId();
+    return <div className="form-group">
+        <label htmlFor={id} className="form-label">{props.label}</label>
         <input
+            id={id}
             type={props.type}
             value={props.value}
             onChange={event => props.onChange(event.target.value)}
-            className={`form-control ${props.showError ? (props.isValid ? 'is-valid' : 'is-invalid') : null}`}
+            className={`form-control ${props.showError && (props.isValid ? 'is-valid' : 'is-invalid')}`}
         />
         <div className="valid-feedback">{props.validFeedback}</div>
         <div className="invalid-feedback">{props.invalidFeedback}</div>
     </div>;
+};
 
 InputTextNumber.defaultProps = defaultProps;
 InputTextNumber.propTypes = propTypes;

@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import {useRef} from "react";
+import {useId, useRef} from "react";
 
 const propTypes = {
     label: PropTypes.string,
@@ -12,10 +12,11 @@ const defaultProps = {
 };
 
 const InputFile = props => {
+    const id = useId();
     const ref = useRef()
     return <div className="form-group">
-        <label className="form-label"><h3 className="fw-bold">{props.label}</h3></label><br/>
-        <input type="file" ref={ref} onChange={event => props.onChange(event.target.files)}/>
+        <label htmlFor={id} className="form-label"><h3 className="fw-bold">{props.label}</h3></label><br/>
+        <input type="file" id={id} ref={ref} onChange={event => props.onChange(event.target.files)}/>
     </div>;
 };
 

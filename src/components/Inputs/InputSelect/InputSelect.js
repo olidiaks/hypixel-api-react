@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import {useId} from "react";
 
 const propTypes = {
     label: PropTypes.string,
@@ -12,9 +13,11 @@ const propTypes = {
 
 
 const InputSelect = props => {
+    const id = useId();
     return <div className="form-group">
-        <label htmlFor="rooms" className="form-label">{props.label}</label>
+        <label htmlFor={id} className="form-label">{props.label}</label>
         <select
+            id={id}
             value={props.value}
             onChange={event => props.onChange(event.target.value)}
             className="form-select"
